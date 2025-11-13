@@ -28,20 +28,34 @@
 ### 示例
 
 ```rust
-// 使用标准缩写的结构体定义
+// 使用标准缩写的类型定义（与 qynapse_core 中的实际代码一致）
+use qynapse_core::{Px, Qty, InstrumentId, TimeStamps};
+use rust_decimal::Decimal;
+use std::time::SystemTime;
+
+// 订单数据结构
 struct OrderData {
-    inst: String,      // Instrument
-    px: f64,           // Price
-    qty: f64,          // Quantity
-    ts: i64,           // Timestamp
+    instrument_id: InstrumentId,  // 标的ID
+    price: Px,                     // 价格
+    quantity: Qty,                 // 数量
+    timestamps: TimeStamps,        // 时间戳
 }
 
+// K线数据结构
 struct BarData {
-    o: f64,            // Open
-    h: f64,            // High
-    l: f64,            // Low
-    c: f64,            // Close
+    open: Px,       // 开盘价
+    high: Px,       // 最高价
+    low: Px,        // 最低价
+    close: Px,      // 收盘价
 }
+
+// 实际使用示例
+let order = OrderData {
+    instrument_id: InstrumentId("600519.SH".to_string()),
+    price: Px(Decimal::from_str_exact("1850.50").unwrap()),
+    quantity: Qty(Decimal::from(100)),
+    timestamps: TimeStamps::exchange_only(SystemTime::now()),
+};
 ```
 
 ## 注意事项
