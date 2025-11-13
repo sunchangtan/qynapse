@@ -1,0 +1,23 @@
+[workspace]
+members = ["crates/core", "crates/data"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.90"
+authors = ["Tank"]
+description = "Qynapse — The Intelligent Event-Driven Quant Framework for Rust."
+license = "MIT"
+repository = "https://github.com/sunchangtan/qynapse.git"
+readme = "README.md"
+keywords = [
+    "quant",
+    "trading",
+    "finance",
+    "algorithmic-trading",
+    "event-driven",
+    "rust",
+]
+categories = ["algorithmic-trading", "finance"]
+publish = false
